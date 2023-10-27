@@ -1,6 +1,6 @@
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @font-face {
   font-family: "Yekan"; /* this value can be anything you wish - it gets used in the class definition below */
   src: url("./fonts/Yekan.ttf"); /* add the file path to your font here */
