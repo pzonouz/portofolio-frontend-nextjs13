@@ -31,7 +31,7 @@ const ProductsByCategories = ({ params }) => {
               key={item.name}
               name={item.name}
               image={item.image}
-              link={`/vehicle-tech/product/${item.name}`}
+              link={`/product/${item.name}`}
             />
           );
         })}

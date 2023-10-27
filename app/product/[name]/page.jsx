@@ -40,28 +40,20 @@ const page = ({ params }) => {
       <div className=" mt-20 p-2 bg-gray-200 w-full flex flex-col gap-3">
         <i className=" mt-6 fa fa-phone fa-5x text-center"></i>
         <div className=" mt-6"> نیاز به مشاوره دارید؟</div>
-        <div className="mt-6 " style={{ color: "gray" }}>
+        <div className="mt-6 text-gray-600 ">
           جهت استعلام قیمت محصولات، مشاوره خرید و هر سوال دیگر میتوانید با ما
           بطور مستقیم در ارتباط باشید.
         </div>
-        <div
-          style={{ color: "black", opacity: 0.7, marginTop: "1rem" }}
-          className=" text-center text-2xl font-bold tracking-wide"
-        >
+        <div className=" text-center text-gray-600 text-2xl font-bold tracking-wide">
           09146160216
         </div>
-        <div className=" text-center" style={{ color: "black", opacity: 0.7 }}>
+        <div className=" text-center text-gray-600">
           آقای محمدنژاد-مدیر فروش
         </div>
-        <div
-          style={{ color: "black", opacity: 0.7 }}
-          className=" mt-6 text-center text-2xl font-bold tracking-wide"
-        >
+        <div className=" mt-6 text-center text-2xl font-bold tracking-wide text-gray-600">
           09147868011
         </div>
-        <div className=" text-center" style={{ color: "black", opacity: 0.7 }}>
-          آقای ساجدی -مدیر فنی
-        </div>
+        <div className=" text-center text-gray-600">آقای ساجدی -مدیر فنی</div>
       </div>
     </div>
   );

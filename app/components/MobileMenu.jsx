@@ -166,7 +166,7 @@ const MobileMenu = () => {
                                 {Object.entries(L3Value).map(([L4Key]) => {
                                   return (
                                     <Link
-                                      href={`/vehicle-tech/products/${L4Key}`}
+                                      href={`/products/${L4Key}`}
                                       style={{ lineHeight: "4rem" }}
                                       className={`${
                                         L3MenuActive === L3Key ? "" : "hidden"
