@@ -1,14 +1,42 @@
 "use client";
+import { useState, useEffect } from "react";
+
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import TopBar from "./TopBar";
+import axios from "axios";
 
 const Navbar = () => {
+  const [loading, setLoading] = useState(false);
+  const [navbarMenu, setNavbarMenu] = useState({});
+
+  const fetchMenu = async () => {
+    setLoading(true);
+    try {
+      const items = await axios.get(`/products/classification/`);
+      setLoading(false);
+      setNavbarMenu({
+        محصولات: items.data,
+        "آموزشگاه فنی حرفه ای": {},
+        "خدمات ۳۶۰": {},
+        // "اطلاعات بیشتر": [{ مقالات: {}, "پروژه ها": {}, "سوالات متداول": {} }],
+        // "جاویدان صنعت": [
+        //   { id: 1, name: "تماس با ما", children: [{}] },
+        //   { id: 2, name: "استخدام", children: [{}] },
+        // ],
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
+  useEffect(() => {
+    fetchMenu();
+  }, []);
   return (
     <div>
       <TopBar />
-      <DesktopMenu />
-      <MobileMenu />
+      {/* <DesktopMenu menu={navbarMenu} /> */}
+      <MobileMenu menu={navbarMenu} />
     </div>
   );
 };

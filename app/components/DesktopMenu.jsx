@@ -2,8 +2,6 @@
 import { useState } from "react";
 import Link from "next/link";
 
-import { navbarMenu } from "../Constants/navbar";
-
 const DesktopMenu = () => {
   const [L1MenuActive, setL1MenuActive] = useState(null);
   const [L2MenuActive, setL2MenuActive] = useState(null);

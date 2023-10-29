@@ -6,11 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // backgroundImage: {
-      //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-      //   "gradient-conic":
-      //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      // },
+      animation: {
+        rotate: "sideways 3s linear infinite",
+      },
+      keyframes: {
+        sideways: {
+          "0%, 100%": { left: "0", top: "0" },
+          "50%": { left: "100px", top: "0" },
+        },
+      },
     },
   },
   plugins: [],

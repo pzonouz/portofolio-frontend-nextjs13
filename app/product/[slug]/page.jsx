@@ -1,39 +1,28 @@
-import { products } from "@/app/Constants/products";
+"use client";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const page = ({ params }) => {
-  let { name } = params;
-  name = decodeURI(name);
-  const getProducts = () => {
-    let pros = [];
-    Object.entries(products).map(([, value]) => {
-      Object.entries(value).map(([, value]) => {
-        Object.entries(value).map(([, value]) => {
-          Object.entries(value).map(([key, value]) => {
-            Object.entries(value).map(([key, value]) => {
-              pros.push(value);
-            });
-          });
-        });
-      });
-    });
-    return pros;
-  };
-  const fetchedProducts = getProducts();
-  const getProductByName = (name) => {
-    const filtered_product = fetchedProducts.filter((item) => {
-      if (item.name == name) {
-        return true;
-      } else {
-        return false;
+  let { slug } = params;
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`/products/slug/${slug}`);
+        setProduct(response.data);
+      } catch (error) {
+        alert(error);
       }
-    });
-    return filtered_product[0];
-  };
-  const product = getProductByName(name);
+    };
+    fetchProduct();
+  }, []);
+
   return (
     <div className="mt-6 flex flex-col items-center justify-center">
       <div className=" flex w-full flex-col items-center justify-center bg-red-600 h-28 text-xl text-white text-center align-middle ">
-        {name}
+        {product.name}
       </div>
       <img src={product.image} alt={product.name} />
       <div className=" px-4 text-center  ">{product.description}</div>

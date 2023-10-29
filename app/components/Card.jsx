@@ -1,5 +1,3 @@
-import { flushAllTraces } from "next/dist/trace";
-import Image from "next/image";
 import Link from "next/link";
 
 // eslint-disable-next-line react/prop-types
