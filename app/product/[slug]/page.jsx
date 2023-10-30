@@ -1,16 +1,18 @@
 "use client";
 
+import { axiosClient } from "@/app/utils/axios";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const page = ({ params }) => {
   let { slug } = params;
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState({});
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`/products/slug/${slug}`);
+        const response = await axiosClient.get(`/products/slug/${slug}/`);
         setProduct(response.data);
       } catch (error) {
         alert(error);
@@ -20,13 +22,32 @@ const page = ({ params }) => {
   }, []);
 
   return (
-    <div className="mt-6 flex flex-col items-center justify-center">
-      <div className=" flex w-full flex-col items-center justify-center bg-red-600 h-28 text-xl text-white text-center align-middle ">
+    <div className="mt-6 gap-4 flex flex-col items-center justify-center">
+      {/* <div className=" flex w-full flex-col items-center justify-center bg-red-600 h-28 text-xl text-white text-center align-middle ">
         {product.name}
-      </div>
+      </div> */}
       <img src={product.image} alt={product.name} />
+      <div className=" text-4xl mx-2 text-center"> {product.name}</div>
       <div className=" px-4 text-center  ">{product.description}</div>
-      <div className=" mt-20 p-2 bg-gray-200 w-full flex flex-col gap-3">
+      <div id="preamble" className=" text-gray-600 px-4">
+        {product.preamble}
+      </div>
+      <ul
+        id="descriptions"
+        className=" mt-8   tracking-wider w-full px-4 flex flex-col items-start justify-center"
+      >
+        <li className=" text-white bg-red-600 w-full py-2 px-2 rounded-t-lg">
+          مشخصات فنی
+        </li>
+        {product.descriptions?.map((item) => {
+          return (
+            <li className=" odd:bg-gray-200 even:text-gray-800 px-2 py-2 w-full">
+              {item.field}
+            </li>
+          );
+        })}
+      </ul>
+      <div className=" mt-16 p-2 bg-gray-200 w-full flex flex-col gap-3">
         <i className=" mt-6 fa fa-phone fa-5x text-center"></i>
         <div className=" mt-6"> نیاز به مشاوره دارید؟</div>
         <div className="mt-6 text-gray-600 ">

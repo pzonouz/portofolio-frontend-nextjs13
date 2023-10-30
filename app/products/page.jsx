@@ -3,17 +3,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
+import { axiosClient } from "../utils/axios";
 
 const page = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`/products/`);
+        const response = await axiosClient.get(`/products/`);
+        setProducts(response.data);
       } catch (error) {
         alert(error);
       }
-      setProducts(response.data);
     };
     fetchProducts();
   }, []);
@@ -23,7 +24,7 @@ const page = () => {
         تمام محصولات
       </div>
       <div className=" mt-6 grid grid-cols-2 md:grid-cols-4 mx-4 gap-6 md:px-12">
-        {products.map((item) => {
+        {products?.map((item) => {
           return (
             <Card
               key={item.id}

@@ -5,6 +5,7 @@ import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import TopBar from "./TopBar";
 import axios from "axios";
+import { axiosClient } from "../utils/axios";
 
 const Navbar = () => {
   const [loading, setLoading] = useState(false);
@@ -13,7 +14,7 @@ const Navbar = () => {
   const fetchMenu = async () => {
     setLoading(true);
     try {
-      const items = await axios.get(`/products/classification/`);
+      const items = await axiosClient.get(`/products/classification/`);
       setLoading(false);
       setNavbarMenu({
         محصولات: items.data,

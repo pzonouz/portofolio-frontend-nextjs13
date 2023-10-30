@@ -53,7 +53,7 @@ const Page = () => {
           ></input>
           <div
             onClick={() => {
-              Object.entries(products).map((item) => {
+              Object.entries(products)?.map((item) => {
                 if (item.includes(L1Insert)) {
                   alert("قبلا وارد شده است");
                   return;
@@ -68,7 +68,7 @@ const Page = () => {
         </div>
       </div>
       <div id="L1">
-        {Object.entries(products).map(([key, value]) => {
+        {Object.entries(products)?.map(([key, value]) => {
           return (
             <div key={key}>
               <div className=" flex flex-row items-center gap-2">
@@ -95,7 +95,7 @@ const Page = () => {
                   L1Open && L1MenuKey == key ? "flex flex-col" : "hidden"
                 }`}
               >
-                {Object.entries(value).map(([key, value]) => {
+                {Object.entries(value)?.map(([key, value]) => {
                   return (
                     <div key={key}>
                       <div
@@ -127,7 +127,7 @@ const Page = () => {
                             : "hidden"
                         }`}
                       >
-                        {Object.entries(value).map(([key, value]) => {
+                        {Object.entries(value)?.map(([key, value]) => {
                           return (
                             <div key={key}>
                               <div

@@ -38,7 +38,7 @@ const Carousel = () => {
       >
         <div className="fa fa-angle-right fa-2x "></div>
       </div> */}
-      {carousel.map((item) => {
+      {carousel?.map((item) => {
         return (
           <div
             key={item.id}
@@ -63,7 +63,7 @@ const Carousel = () => {
         id="dots"
         className=" absolute flex flex-row gap-2 -bottom-12 left-1/2 -translate-x-1/2"
       >
-        {carousel.map((item) => {
+        {carousel?.map((item) => {
           return (
             <div
               key={item.id}

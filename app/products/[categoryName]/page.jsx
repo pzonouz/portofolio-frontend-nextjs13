@@ -6,10 +6,10 @@ const ProductsByCategories = ({ params }) => {
   categoryName = decodeURI(categoryName);
   const getProductCategoriesByProducts = () => {
     let productCategoriesByProducts = {};
-    Object.entries(products).map(([, value]) => {
-      Object.entries(value).map(([, value]) => {
-        Object.entries(value).map(([, value]) => {
-          Object.entries(value).map(([key, value]) => {
+    Object.entries(products)?.map(([, value]) => {
+      Object.entries(value)?.map(([, value]) => {
+        Object.entries(value)?.map(([, value]) => {
+          Object.entries(value)?.map(([key, value]) => {
             productCategoriesByProducts[key] = value;
           });
         });
@@ -25,7 +25,7 @@ const ProductsByCategories = ({ params }) => {
         {categoryName}
       </div>
       <div className=" mt-6 grid grid-cols-2 md:grid-cols-4 mx-4 gap-6 md:px-12">
-        {fetchedProducts.map((item) => {
+        {fetchedProducts?.map((item) => {
           return (
             <Card
               key={item.name}

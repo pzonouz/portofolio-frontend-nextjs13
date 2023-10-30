@@ -25,11 +25,11 @@ const MobileMenu = ({ menu }) => {
             className={`${
               mobileMenuVisible
                 ? "fa fa-close fa-2x text-white bg-black p-2"
-                : "fa fa-bars fa-2x text-white bg-red-700 p-2"
+                : "fa fa-bars fa-2x text-white bg-red-600 p-2"
             }`}
           ></div>
         </div>
-        <div className="text-white bg-red-700 px-4 py-2 rounded-md cursor-pointer">
+        <div className="text-white bg-red-600 px-4 py-2 rounded-md cursor-pointer">
           پرتال مشتریان
         </div>
         <Link href="/" className="text-lg cursor-pointer">
@@ -42,7 +42,7 @@ const MobileMenu = ({ menu }) => {
           mobileMenuVisible ? "flex" : "hidden"
         } md:hidden top-28 flex-col absolute  w-full items-center justify-around text-white mx-auto bg-slate-800`}
       >
-        {Object.entries(menu).map(([L1Key, L1Value]) => {
+        {Object.entries(menu)?.map(([L1Key, L1Value]) => {
           return (
             <div
               onClick={(e) => e.stopPropagation()}
@@ -88,7 +88,7 @@ const MobileMenu = ({ menu }) => {
                 } flex-col bg-slate-800 items-center justify-center w-full `}
               >
                 {Array.isArray(L1Value) ? (
-                  L1Value.map((item1) => {
+                  L1Value?.map((item1) => {
                     return (
                       <div
                         onClick={(e) => {
@@ -133,7 +133,7 @@ const MobileMenu = ({ menu }) => {
                             L2MenuActive === item1.name ? "flex" : "hidden"
                           } flex-col bg-slate-800 w-full items-center justify-center `}
                         >
-                          {item1.children.map((item2) => {
+                          {item1.children?.map((item2) => {
                             return (
                               <div
                                 onClick={(e) => e.stopPropagation()}
@@ -178,7 +178,7 @@ const MobileMenu = ({ menu }) => {
                                       : "hidden"
                                   } flex-col bg-slate-800 w-full items-center justify-center `}
                                 >
-                                  {item2.children.map((item3) => {
+                                  {item2.children?.map((item3) => {
                                     return (
                                       <Link
                                         href={`/products/${item3.key}`}

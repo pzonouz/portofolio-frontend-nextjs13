@@ -13,7 +13,7 @@ const DesktopMenu = () => {
       className="hidden md:flex flex-row py-5 items-center justify-around w-2/3 mx-auto"
     >
       <Link href="/">LOGO</Link>
-      {Object.entries(navbarMenu).map(([L1Key, L1Value]) => {
+      {Object.entries(navbarMenu)?.map(([L1Key, L1Value]) => {
         return (
           <div
             className={` relative flex flex-row gap-2 items-center cursor-pointer p-2 ${
@@ -46,7 +46,7 @@ const DesktopMenu = () => {
                 L1MenuActive == L1Key ? "flex" : "hidden"
               } absolute top-14 right-0 flex-col bg-slate-800 w-44 items-center justify-center `}
             >
-              {Object.entries(L1Value).map(([L2Key, L2Value]) => {
+              {Object.entries(L1Value)?.map(([L2Key, L2Value]) => {
                 return (
                   <div
                     className={`h-8 flex flex-row gap-2 items-center justify-center relative w-full 
@@ -79,7 +79,7 @@ const DesktopMenu = () => {
                         L2MenuActive === L2Key ? "flex" : "hidden"
                       } absolute top-0 right-44 flex-col bg-slate-800 w-44 items-center justify-center `}
                     >
-                      {Object.entries(L2Value).map(([L3Key, L3Value]) => {
+                      {Object.entries(L2Value)?.map(([L3Key, L3Value]) => {
                         return (
                           <div
                             className={`${
@@ -118,7 +118,7 @@ const DesktopMenu = () => {
                                 L3MenuActive === L3Key ? "flex" : "hidden"
                               } absolute top-0 right-44 flex-col bg-slate-800 w-44 items-center justify-center `}
                             >
-                              {Object.entries(L3Value).map(([L4Key]) => {
+                              {Object.entries(L3Value)?.map(([L4Key]) => {
                                 return (
                                   <Link
                                     href={`/products/${L4Key}`}
