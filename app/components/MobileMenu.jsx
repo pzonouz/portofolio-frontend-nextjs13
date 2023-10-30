@@ -79,7 +79,14 @@ const MobileMenu = ({ menu }) => {
                 ) : (
                   ""
                 )}
-                <Link href="/products">{L1Key}</Link>
+                <Link
+                  href="/products"
+                  onClick={() => {
+                    setMobileMenuVisible(false);
+                  }}
+                >
+                  {L1Key}
+                </Link>
               </div>
               <div
                 id="L2 Menu"
@@ -123,7 +130,10 @@ const MobileMenu = ({ menu }) => {
                           ) : (
                             ""
                           )}
-                          <Link href={`/categoryL1/${item1.slug}`}>
+                          <Link
+                            onClick={() => setMobileMenuVisible(false)}
+                            href={`/products/by_level1/${item1.id}`}
+                          >
                             {item1.name}
                           </Link>
                         </div>
@@ -158,7 +168,7 @@ const MobileMenu = ({ menu }) => {
                                         }
                                         setL3MenuActive(item2.name);
                                       }}
-                                      className={`fa ${
+                                      className={` cursor-pointer fa ${
                                         !(L3MenuActive === item2.name)
                                           ? "fa-plus-square"
                                           : "fa-minus-square"
@@ -167,7 +177,12 @@ const MobileMenu = ({ menu }) => {
                                   ) : (
                                     ""
                                   )}
-                                  {item2.name}
+                                  <Link
+                                    onClick={() => setMobileMenuVisible(false)}
+                                    href={`/products/by_level2/${item2.id}`}
+                                  >
+                                    {item2.name}
+                                  </Link>
                                 </div>
 
                                 <div
@@ -181,7 +196,7 @@ const MobileMenu = ({ menu }) => {
                                   {item2.children?.map((item3) => {
                                     return (
                                       <Link
-                                        href={`/products/${item3.key}`}
+                                        href={`/products/by_level3/${item3.id}`}
                                         style={{ lineHeight: "4rem" }}
                                         className={`${
                                           L3MenuActive === item2.name
@@ -192,6 +207,7 @@ const MobileMenu = ({ menu }) => {
                                         onClick={(e) => {
                                           e.stopPropagation();
                                           setL1MenuActive(null);
+                                          setMobileMenuVisible(false);
                                           setMobileMenuVisible(false);
                                         }}
                                       >

@@ -8,14 +8,14 @@ const Brands = () => {
   const [brands, setBrands] = useState([]);
   useEffect(() => {
     const fetchBrands = async () => {
-      const response = await axiosClient.get("/products/brands/");
+      let response = await axiosClient.get(`/products/brands/`);
       setBrands(response.data);
     };
     fetchBrands();
   }, []);
   return (
     <div className=" mt-32 flex flex-col">
-      <div className=" text-red-600 font-bold text-2xl text-center">
+      <div className=" -mb-12 text-red-600 font-bold text-2xl text-center">
         جاویدان صنعت
       </div>
       {brands?.map((item) => {
@@ -23,7 +23,7 @@ const Brands = () => {
           <div className="flex flex-col mt-20 items-center gap-6 bg-[url('/public/hero-pattern.svg')]">
             <div>نماینده محصولات {item.name} در شمالغرب کشور</div>
             <Link
-              href="#"
+              href={`/products/by_brand/${item.id}`}
               className=" bg-black text-white px-4 py-2 rounded-md
              cursor-pointer hover:bg-red-600 transition-colors duration-500"
             >

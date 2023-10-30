@@ -5,14 +5,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const page = ({ params }) => {
-  let { slug } = params;
+  let { id } = params;
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState({});
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axiosClient.get(`/products/slug/${slug}/`);
+        const response = await axiosClient.get(`/products/by_id/${id}/`);
         setProduct(response.data);
       } catch (error) {
         alert(error);
