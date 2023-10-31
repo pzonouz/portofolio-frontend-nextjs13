@@ -49,7 +49,7 @@ const Carousel = () => {
   return (
     <div
       id="carousel"
-      className=" -z-10 relative w-5/6  md:w-2/3 mt-8 h-56  mx-auto flex flex-row items-center justify-between"
+      className=" relative w-11/12 md:w-11/12 mt-8 h-56 md:h-80  mx-auto flex flex-row items-center justify-between"
     >
       {loading ? <Loading /> : ""}
 
@@ -57,14 +57,14 @@ const Carousel = () => {
         return (
           <div
             key={index}
-            className={`absolute overflow-hidden h-52 transition-all ease-in-out duration-[2s] ${
+            className={`absolute overflow-hidden h-52 md:h-72 transition-all ease-in-out duration-[2s] ${
               slideNumber == index ? " opacity-100" : " opacity-0"
             } `}
           >
             <img
               src={item.image}
               alt={item.title}
-              className="w-screen h-48 my-auto -z-20"
+              className="w-screen h-48 md:h-64 my-auto"
             />
           </div>
         );
@@ -72,7 +72,7 @@ const Carousel = () => {
 
       <div
         id="dots"
-        className=" absolute flex flex-row-reverse gap-2 -bottom-3  left-1/2 -translate-x-1/2 "
+        className=" absolute flex flex-row-reverse gap-2 -bottom-3  left-1/2 -translate-x-1/2"
       >
         {carousel?.map((item, index) => {
           return (

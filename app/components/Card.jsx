@@ -3,7 +3,10 @@ import Link from "next/link";
 // eslint-disable-next-line react/prop-types
 const Card = ({ name, image, link }) => {
   return (
-    <div className="bg-gray-200 tracking-wider text-lg hover:bg-white cursor-pointer rounded-xl w-44 flex flex-col gap-2 p-3">
+    <div
+      className="bg-gray-200 tracking-wider text-lg hover:bg-white cursor-pointer rounded-xl
+     w-full flex flex-col justify-between gap-2 p-5"
+    >
       <Link href={link}>
         <img src={image} alt={name} />
       </Link>

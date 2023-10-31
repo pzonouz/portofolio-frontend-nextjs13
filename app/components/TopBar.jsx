@@ -12,7 +12,11 @@ const TopBar = () => {
         <a href="#" className="fa fa-whatsapp"></a>
         <a href="#" className="fa fa-instagram"></a>
       </div>
-      <a href="tel:04135420988">04135420988</a>
+      <label className="hidden md:block">04135420988</label>
+      <a className="md:hidden" href="tel:04135420988">
+        04135420988
+      </a>
+      s
     </div>
   );
 };

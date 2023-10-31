@@ -23,23 +23,25 @@ const Brands = () => {
       <div className=" -mb-12 text-red-600 font-bold text-2xl text-center">
         جاویدان صنعت
       </div>
-      {brands?.map((item) => {
-        return (
-          <div key={item.id} className="flex flex-col mt-20 items-center ]">
-            <div className=" mb-6">
-              نماینده محصولات {item.name} در شمالغرب کشور
-            </div>
-            <Link
-              href={`/products/by_brand/${item.id}`}
-              className=" bg-black text-white px-4 py-2 rounded-md
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {brands?.map((item) => {
+          return (
+            <div key={item.id} className="flex flex-col mt-20 items-center">
+              <div className=" mb-6">
+                نماینده محصولات {item.name} در شمالغرب کشور
+              </div>
+              <Link
+                href={`/products/by_brand/${item.id}`}
+                className=" bg-black text-white px-4 py-2 rounded-md
              cursor-pointer hover:bg-red-600 transition-colors duration-500"
-            >
-              نمایش محصولات
-            </Link>
-            <img className="mt-6" src={`${item.image}`} alt="item.name" />
-          </div>
-        );
-      })}
+              >
+                نمایش محصولات
+              </Link>
+              <img className="mt-6" src={`${item.image}`} alt="item.name" />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
