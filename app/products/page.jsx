@@ -1,17 +1,20 @@
 "use client";
 
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { axiosClient } from "../utils/axios";
+import Loading from "../components/Loading";
 
 const page = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setLoading(true);
         const response = await axiosClient.get(`/products/`);
         setProducts(response.data);
+        setLoading(false);
       } catch (error) {
         alert(error);
       }
@@ -20,6 +23,7 @@ const page = () => {
   }, []);
   return (
     <div className=" mt-6">
+      {loading ? <Loading /> : ""}
       <div className=" bg-red-600 h-28 text-3xl text-white text-center align-middle leading-[7rem]">
         تمام محصولات
       </div>

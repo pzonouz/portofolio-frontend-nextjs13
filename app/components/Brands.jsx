@@ -3,24 +3,32 @@
 import { useEffect, useState } from "react";
 import { axiosClient } from "../utils/axios";
 import Link from "next/link";
+import Loading from "./Loading";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchBrands = async () => {
+      setLoading(true);
       let response = await axiosClient.get(`/products/brands/`);
+      setLoading(false);
       setBrands(response.data);
     };
     fetchBrands();
   }, []);
   return (
-    <div className=" mt-32 flex flex-col">
+    <div className=" mt-24 flex flex-col">
+      {loading ? <Loading /> : ""}
       <div className=" -mb-12 text-red-600 font-bold text-2xl text-center">
         جاویدان صنعت
       </div>
       {brands?.map((item) => {
         return (
-          <div className="flex flex-col mt-20 items-center gap-6 bg-[url('/public/hero-pattern.svg')]">
+          <div
+            key={item.id}
+            className="flex flex-col mt-20 items-center gap-6]"
+          >
             <div>نماینده محصولات {item.name} در شمالغرب کشور</div>
             <Link
               href={`/products/by_brand/${item.id}`}
@@ -29,7 +37,7 @@ const Brands = () => {
             >
               نمایش محصولات
             </Link>
-            <img src={`${item.image}`} />
+            <img src={`${item.image}`} alt="item.name" />
           </div>
         );
       })}

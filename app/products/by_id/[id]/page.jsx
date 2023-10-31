@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/components/Loading";
 import { axiosClient } from "@/app/utils/axios";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -12,8 +13,10 @@ const page = ({ params }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
+        setLoading(true);
         const response = await axiosClient.get(`/products/by_id/${id}/`);
         setProduct(response.data);
+        setLoading(false);
       } catch (error) {
         alert(error);
       }
@@ -26,6 +29,7 @@ const page = ({ params }) => {
       {/* <div className=" flex w-full flex-col items-center justify-center bg-red-600 h-28 text-xl text-white text-center align-middle ">
         {product.name}
       </div> */}
+      {loading ? <Loading /> : ""}
       <img src={product.image} alt={product.name} />
       <div className=" text-4xl mx-2 text-center"> {product.name}</div>
       <div className=" px-4 text-center  ">{product.description}</div>

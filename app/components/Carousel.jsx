@@ -1,24 +1,42 @@
 "use client";
-import { carousel } from "../Constants/carousel";
-
 import { useState, useEffect } from "react";
+import { axiosClient } from "../utils/axios";
+import Loading from "./Loading";
+import Image from "next/image";
 
 const Carousel = () => {
-  const [slideNumber, setSlideNumber] = useState(carousel[0].id);
+  const [loading, setLoading] = useState(false);
+  const [carousel, setCarousel] = useState([]);
+  const [slideNumber, setSlideNumber] = useState(0);
+
+  const fetchCarousel = async () => {
+    setLoading(true);
+    const response = await axiosClient.get("/products/carousel/");
+    setCarousel(response.data);
+    setLoading(false);
+  };
+
   const rightClickHandler = () => {
-    if (slideNumber > carousel.length - 1) {
-      setSlideNumber(carousel[0].id);
+    if (slideNumber > carousel.length - 2) {
+      setSlideNumber(0);
       return;
     }
     setSlideNumber(slideNumber + 1);
+    return;
   };
+
   const leftClickHandler = () => {
-    if (slideNumber < carousel[0].id + 1) {
-      setSlideNumber(carousel.length);
+    if (slideNumber == 0) {
+      setSlideNumber(carousel.length - 1);
       return;
     }
     setSlideNumber(slideNumber - 1);
   };
+
+  useEffect(() => {
+    fetchCarousel();
+  }, []);
+
   useEffect(() => {
     const carouselInterval = setInterval(() => {
       rightClickHandler();
@@ -26,52 +44,49 @@ const Carousel = () => {
     return () => {
       clearInterval(carouselInterval);
     };
-  }, [slideNumber]);
+  }, [slideNumber, carousel]);
+
   return (
     <div
-      id="container"
-      className="relative w-screen md:w-2/3  mx-auto h-[10rem] flex flex-row items-center justify-between -z-10"
+      id="carousel"
+      className=" relative  md:w-2/3 mt-12 h-48  mx-auto flex flex-row items-center justify-between"
     >
-      {/* <div
-        className="absolute bg-gray-300 opacity-40 hover:opacity-100 w-10 h-10 rounded-full hidden md:flex flex-row items-center justify-center cursor-pointer"
-        onClick={rightClickHandler}
-      >
-        <div className="fa fa-angle-right fa-2x "></div>
-      </div> */}
-      {carousel?.map((item) => {
+      {loading ? <Loading /> : ""}
+
+      {carousel?.map((item, index) => {
         return (
           <div
-            key={item.id}
-            className={`absolute  transition-all duration-[2s] ${
-              slideNumber == item.id ? " opacity-100" : " opacity-0"
+            key={index}
+            className={`absolute overflow-hidden h-40 transition-all ease-in-out duration-[2s] ${
+              slideNumber == index ? " opacity-100" : " opacity-0"
             } `}
           >
             <img
               src={item.image}
-              className="w-screen sm:h-[20rem] md:h-[30rem] relative -z-20"
+              alt={item.title}
+              className="w-screen h-36 my-auto -z-20"
             />
           </div>
         );
       })}
-      {/* <div
-        className="absolute left-0 opacity-40 hover:opacity-100 bg-gray-300 w-10 h-10 rounded-full hidden md:flex flex-row items-center justify-center cursor-pointer"
-        onClick={leftClickHandler}
-      >
-        <div className="fa fa-angle-left fa-2x"></div>
-      </div> */}
+
       <div
         id="dots"
-        className=" absolute flex flex-row gap-2 -bottom-12 left-1/2 -translate-x-1/2"
+        className=" absolute flex flex-row-reverse gap-2 bottom-1  left-1/2 -translate-x-1/2 z-50"
       >
-        {carousel?.map((item) => {
+        {carousel?.map((item, index) => {
           return (
             <div
-              key={item.id}
-              className={` cursor-pointer w-3 h-3 rounded-full border-2 border-red-700 ${
-                slideNumber == item.id ? " bg-red-700" : ""
+              key={index}
+              className={` transition duration-1000 ease-in-out flex flex-row items-center justify-center cursor-pointer w-6 h-6 rounded-lg border-2 border-red-600 z-50 ${
+                slideNumber == index
+                  ? " bg-red-600 text-white"
+                  : " text-red-600"
               }`}
-              onClick={() => setSlideNumber(item.id)}
-            ></div>
+              onClick={() => setSlideNumber(index)}
+            >
+              {index}
+            </div>
           );
         })}
       </div>

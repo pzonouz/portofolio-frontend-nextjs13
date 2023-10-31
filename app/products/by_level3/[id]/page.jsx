@@ -1,6 +1,7 @@
 "use client";
 
 import Card from "@/app/components/Card";
+import Loading from "@/app/components/Loading";
 import { axiosClient } from "@/app/utils/axios";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -14,10 +15,12 @@ const page = ({ params }) => {
   useEffect(() => {
     const fetchProductsAndLevel3 = async () => {
       try {
+        setLoading(true);
         let response = await axiosClient.get(`/products/by_level3/${id}/`);
         setProducts(response.data);
         response = await axiosClient.get(`/products/level3/${id}/`);
         setLevel3(response.data);
+        setLoading(false);
       } catch (error) {
         alert(error);
       }
@@ -27,6 +30,7 @@ const page = ({ params }) => {
 
   return (
     <div className=" mt-6">
+      {loading ? <Loading /> : ""}
       <div className=" bg-red-600 h-28 text-3xl text-white text-center align-middle leading-[7rem]">
         {level3.name}
       </div>

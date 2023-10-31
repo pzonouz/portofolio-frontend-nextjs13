@@ -1,8 +1,8 @@
 "use client";
 
 import Card from "@/app/components/Card";
+import Loading from "@/app/components/Loading";
 import { axiosClient } from "@/app/utils/axios";
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 const page = ({ params }) => {
@@ -14,10 +14,12 @@ const page = ({ params }) => {
   useEffect(() => {
     const fetchProductsByBrand = async () => {
       try {
+        setLoading(true);
         let response = await axiosClient.get(`/products/by_brand/${id}/`);
         setProducts(response.data);
         response = await axiosClient.get(`/products/brand/${id}/`);
         setBrand(response.data);
+        setLoading(false);
       } catch (error) {
         alert(error);
       }
@@ -27,6 +29,7 @@ const page = ({ params }) => {
 
   return (
     <div className=" mt-6">
+      {loading ? <Loading /> : ""}
       <div className=" bg-red-600 h-28 text-3xl text-white text-center align-middle leading-[7rem]">
         {brand.name}
       </div>

@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import TopBar from "./TopBar";
-import axios from "axios";
 import { axiosClient } from "../utils/axios";
+import Loading from "./Loading";
 
 const Navbar = () => {
   const [loading, setLoading] = useState(false);
   const [navbarMenu, setNavbarMenu] = useState({});
 
   const fetchMenu = async () => {
-    setLoading(true);
     try {
+      setLoading(true);
       const items = await axiosClient.get(`/products/classification/`);
       setLoading(false);
       setNavbarMenu({
@@ -35,6 +35,7 @@ const Navbar = () => {
   }, []);
   return (
     <div>
+      {loading ? <Loading /> : ""}
       <TopBar />
       {/* <DesktopMenu menu={navbarMenu} /> */}
       <MobileMenu menu={navbarMenu} />
