@@ -25,11 +25,10 @@ const Brands = () => {
       </div>
       {brands?.map((item) => {
         return (
-          <div
-            key={item.id}
-            className="flex flex-col mt-20 items-center gap-6]"
-          >
-            <div>نماینده محصولات {item.name} در شمالغرب کشور</div>
+          <div key={item.id} className="flex flex-col mt-20 items-center ]">
+            <div className=" mb-6">
+              نماینده محصولات {item.name} در شمالغرب کشور
+            </div>
             <Link
               href={`/products/by_brand/${item.id}`}
               className=" bg-black text-white px-4 py-2 rounded-md
@@ -37,7 +36,7 @@ const Brands = () => {
             >
               نمایش محصولات
             </Link>
-            <img src={`${item.image}`} alt="item.name" />
+            <img className="mt-6" src={`${item.image}`} alt="item.name" />
           </div>
         );
       })}
