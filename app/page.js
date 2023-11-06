@@ -1,13 +1,27 @@
 import Carousel from "@/app/components/Carousel";
 import Hero from "@/app/components/Hero";
 import Brands from "./components/Brands";
+import { EmblaCarousel } from "./components/EmblaCarousel";
+import Features from "./components/Features";
+import Achievements from "./components/Achievements";
+import ProductBanners from "./components/ProductBanners";
+import { ProjectBanners } from "./components/ProjectBanners";
+import AtOneGlance from "./components/AtOneGlance";
+import Events from "./components/Events";
+import Suppliers from "./components/suppliers";
 
 export default function RootPage() {
   return (
     <main>
-      <Hero />
-      <Carousel />
+      <EmblaCarousel />
+      <ProductBanners />
+      <Features />
       <Brands />
+      <Achievements />
+      <ProjectBanners />
+      <AtOneGlance />
+      <Events />
+      <Suppliers />
     </main>
   );
 }

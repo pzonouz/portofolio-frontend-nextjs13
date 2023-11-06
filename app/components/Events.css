@@ -1,0 +1,27 @@
+.h_iframe-aparat_embed_frame {
+  position: relative;
+}
+.h_iframe-aparat_embed_frame .ratio {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.h_iframe-aparat_embed_frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.embla {
+  overflow: hidden;
+  margin: 1rem 1rem;
+}
+.embla__container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}

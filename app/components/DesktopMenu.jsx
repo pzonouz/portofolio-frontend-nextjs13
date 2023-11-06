@@ -10,7 +10,7 @@ const DesktopMenu = ({ products }) => {
   return (
     <div
       id="L1 Menu"
-      className="hidden md:flex flex-row py-5 items-center justify-around w-2/3 mx-auto"
+      className="hidden md:flex flex-row py-5 items-center justify-around w-2/3 mx-auto relative z-20"
     >
       <Link href="/">LOGO</Link>
       <div
@@ -30,9 +30,7 @@ const DesktopMenu = ({ products }) => {
       >
         <i
           className={` cursor-pointer fa ${
-            !(L1MenuActive == "Products")
-              ? " fa-plus-square"
-              : "fa-minus-square"
+            !(L1MenuActive == "Products") ? " fa-plus" : "fa-minus"
           }`}
         ></i>
         <Link
@@ -53,7 +51,7 @@ const DesktopMenu = ({ products }) => {
             ? products.map((item1) => {
                 return (
                   <div
-                    className={`h-8 cursor-default flex flex-row-reverse gap-2 items-center justify-between relative w-full px-2
+                    className={` text-left h-8 cursor-default flex flex-row-reverse gap-2 items-center justify-between relative w-full px-2
                       ${
                         L2MenuActive == item1.id
                           ? " bg-red-600 text-white"
@@ -73,9 +71,7 @@ const DesktopMenu = ({ products }) => {
                           setL3MenuActive(null);
                         }}
                         className={` cursor-pointer fa ${
-                          !(L2MenuActive === item1.id)
-                            ? "fa-plus-square"
-                            : "fa-minus-square"
+                          !(L2MenuActive === item1.id) ? "fa-plus" : "fa-minus"
                         }`}
                       ></i>
                     ) : (
@@ -114,8 +110,8 @@ const DesktopMenu = ({ products }) => {
                               <i
                                 className={` cursor-pointer fa ${
                                   !(L3MenuActive === item2.id)
-                                    ? "fa-plus-square"
-                                    : "fa-minus-square"
+                                    ? "fa-plus"
+                                    : "fa-minus"
                                 }`}
                               ></i>
                             ) : (

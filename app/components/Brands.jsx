@@ -18,7 +18,7 @@ const Brands = () => {
     fetchBrands();
   }, []);
   return (
-    <div className=" mt-24 flex flex-col">
+    <div className=" mx-[1rem] py-12 flex flex-col bg-gray-200 ">
       {loading ? <Loading /> : ""}
       <div className=" -mb-12 text-red-600 font-bold text-2xl text-center">
         جاویدان صنعت
@@ -37,7 +37,11 @@ const Brands = () => {
               >
                 نمایش محصولات
               </Link>
-              <img className="mt-6" src={`${item.image}`} alt="item.name" />
+              <img
+                className="mt-6"
+                src={`${item.image_large}`}
+                alt="item.name"
+              />
             </div>
           );
         })}

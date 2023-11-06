@@ -13,7 +13,42 @@ body {
   font-family: Yekan;
   background-color: #f6f7fb;
 }
-.fa {
-  -webkit-transition: all 0.5s;
-  transition: all 2s;
+
+.theme-main-color {
+  background-color: #cc161c;
+}
+.theme-main-border-color {
+  border-color: #cc161c;
+}
+.theme-text-color {
+  color: #ffffff;
+}
+.theme-second-color {
+  background-color: #1e293b;
+}
+.theme-accent-color {
+  background-color: #a12;
+}
+.theme-gray-color {
+  color: #a1a1a1;
+}
+.theme-borer-gray-color {
+  color: #a1a1a1;
+}
+.theme-menu-selected-background-color {
+  background-color: #f6f6f6;
+}
+.theme-menu-background-color {
+  background-color: #fff;
+}
+.theme-menu-text-color {
+  color: #333;
+}
+
+.theme-menu-select-color {
+  background-color: #333;
+  color: #111;
+}
+.loading {
+  background-color: #f6f7fb;
 }
