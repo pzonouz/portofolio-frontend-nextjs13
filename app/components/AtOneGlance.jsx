@@ -9,7 +9,7 @@ const AtOneGlance = () => {
       <div className=" w-40 text-sm mx-auto py-2 px-1 bg-black text-white rounded-md text-center">
         نمایش کاتالوگ جاویدان
       </div>
-      <img src="/catalog.png" />
+      <img alt="catalog" src="/catalog.png" />
     </div>
   );
 };

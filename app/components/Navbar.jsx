@@ -9,24 +9,21 @@ import Loading from "./Loading";
 
 const Navbar = () => {
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState([]);
+  const [services, setServices] = useState([]);
+  const [classes, setCLasses] = useState([]);
 
   const fetchMenu = async () => {
     try {
       setLoading(true);
-      const response = await axiosClient.get(`/products/classification/`);
+      let response = await axiosClient.get(`/products/parts_classification/`);
       setProducts(response.data);
+      response = await axiosClient.get(`/products/services_classification/`);
+      setServices(response.data);
+      response = await axiosClient.get(`/products/classes_classification/`);
+      setCLasses(response.data);
+
       setLoading(false);
-      // setNavbarMenu({
-      //   محصولات: items.data,
-      //   "آموزشگاه فنی حرفه ای": {},
-      //   "خدمات ۳۶۰": {},
-      //   // "اطلاعات بیشتر": [{ مقالات: {}, "پروژه ها": {}, "سوالات متداول": {} }],
-      //   // "جاویدان صنعت": [
-      //   //   { id: 1, name: "تماس با ما", children: [{}] },
-      //   //   { id: 2, name: "استخدام", children: [{}] },
-      //   // ],
-      // });
     } catch (error) {
       alert(error);
     }
@@ -39,7 +36,7 @@ const Navbar = () => {
       {loading ? <Loading /> : ""}
       <TopBar />
       <DesktopMenu products={products} />
-      <MobileMenu products={products} />
+      <MobileMenu products={products} services={services} classes={classes} />
     </div>
   );
 };

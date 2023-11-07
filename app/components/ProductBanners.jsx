@@ -8,7 +8,7 @@ const ProductBanners = () => {
   const [banners, setBanners] = useState([]);
   const fetchBanners = async () => {
     const response = await axiosClient("/products/banners/");
-    setBanners(response.data[0]["product_level_1s"]);
+    setBanners(response.data);
   };
   useEffect(() => {
     fetchBanners();

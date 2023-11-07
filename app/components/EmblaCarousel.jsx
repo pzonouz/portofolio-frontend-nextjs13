@@ -6,6 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 import "./EmblaCarousel.css";
 import Loading from "./Loading";
 import { axiosClient } from "../utils/axios";
+import Link from "next/link";
 
 export const EmblaCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
@@ -38,9 +39,13 @@ export const EmblaCarousel = () => {
         <div className="embla__container">
           {carousel.map((item) => {
             return (
-              <div key={item.id} className="embla__slide">
-                <img src={item.image} />
-              </div>
+              <Link
+                href={`/products/by_id/${item.id}`}
+                key={item.id}
+                className="embla__slide"
+              >
+                <img src={item.image} alt={item.name} />
+              </Link>
             );
           })}
         </div>

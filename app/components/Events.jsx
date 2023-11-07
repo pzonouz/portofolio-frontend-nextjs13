@@ -30,39 +30,19 @@ const Events = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    // <div className=" px-[1rem] py-12 my-12  bg-gray-300">
-    //   {events.map((event) => {
-    //     return (
-    //       <div>
-    //         <div className=" text-center mb-4">{event.name}</div>
-    //         <div key={event.id} className="h_iframe-aparat_embed_frame">
-    //           <span style={{ display: "block", "padding-top": "57%" }}></span>
-    //           <iframe
-    //             src={event.video_link}
-    //             allowFullScreen="true"
-    //             webkitallowfullscreen="true"
-    //             mozallowfullscreen="true"
-    //           ></iframe>
-    //         </div>
-    //       </div>
-    //     );
-    //   })}
-    // </div>
     <div>
       {loading ? <Loading /> : ""}
       <div className="embla" ref={emblaRef}>
         <div className="embla__container">
           {events.map((event) => {
             return (
-              <div className="embla__slide">
+              <div key={event.id} className="embla__slide">
                 <div>{event.name}</div>
                 <div key={event.id} className="h_iframe-aparat_embed_frame">
-                  <span
-                    style={{ display: "block", "padding-top": "57%" }}
-                  ></span>
+                  <span style={{ display: "block", paddingTop: "57%" }}></span>
                   <iframe
                     src={event.video_link}
-                    allowFullScreen="true"
+                    allowFullScreen={true}
                     webkitallowfullscreen="true"
                     mozallowfullscreen="true"
                   ></iframe>

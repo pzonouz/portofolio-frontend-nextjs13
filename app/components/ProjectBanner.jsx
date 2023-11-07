@@ -3,6 +3,7 @@ const ProjectBanner = ({ project }) => {
     <div className="group">
       <div className=" relative overflow-hidden transition-all duration-500 ease-in-out">
         <img
+          alt={project.images[0].name}
           src={project.images[0].image}
           className="group-hover:scale-110 transition-all duration-500 ease-in-out"
         />
