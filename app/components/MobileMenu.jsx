@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import "./MobileMenu.css";
 
-const MobileMenu = ({ products, services, classes }) => {
+const MobileMenu = ({ parts, services, classes }) => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
   const [mobileMenuSlide, setMobileMenuSlide] = useState(false);
   const [L1MenuActive, setL1MenuActive] = useState(null);
@@ -107,21 +107,21 @@ const MobileMenu = ({ products, services, classes }) => {
               >
                 محصولات
               </Link>
-              {products.length ? (
+              {parts?.length ? (
                 <div
                   className=" cursor-pointer transition-all duration-500 ease-in-out"
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (L1MenuActive == "products") {
+                    if (L1MenuActive == "parts") {
                       setL1MenuActive(null);
                       return;
                     }
-                    setL1MenuActive("products");
+                    setL1MenuActive("parts");
                     setL2MenuActive(null);
                     setL3MenuActive(null);
                   }}
                 >
-                  {!(L1MenuActive == "products") ? <div>+</div> : <div>-</div>}
+                  {!(L1MenuActive == "parts") ? <div>+</div> : <div>-</div>}
                 </div>
               ) : (
                 ""
@@ -130,11 +130,11 @@ const MobileMenu = ({ products, services, classes }) => {
             <div
               id="L2 Menu"
               className={`${
-                L1MenuActive == "products" ? "flex" : "hidden"
+                L1MenuActive == "parts" ? "flex" : "hidden"
               } flex-col theme-menu-background-color items-center justify-center w-full `}
             >
-              {Array.isArray(products) ? (
-                products?.map((item1) => {
+              {Array.isArray(parts) ? (
+                parts?.map((item1) => {
                   return (
                     <div
                       onClick={(e) => {

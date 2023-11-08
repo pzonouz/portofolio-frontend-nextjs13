@@ -9,7 +9,7 @@ import Loading from "./Loading";
 
 const Navbar = () => {
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
+  const [parts, setParts] = useState([]);
   const [services, setServices] = useState([]);
   const [classes, setCLasses] = useState([]);
 
@@ -17,7 +17,7 @@ const Navbar = () => {
     try {
       setLoading(true);
       let response = await axiosClient.get(`/products/parts_classification/`);
-      setProducts(response.data);
+      setParts(response.data);
       response = await axiosClient.get(`/products/services_classification/`);
       setServices(response.data);
       response = await axiosClient.get(`/products/classes_classification/`);
@@ -35,8 +35,8 @@ const Navbar = () => {
     <div>
       {loading ? <Loading /> : ""}
       <TopBar />
-      <DesktopMenu products={products} />
-      <MobileMenu products={products} services={services} classes={classes} />
+      <DesktopMenu products={parts} />
+      <MobileMenu parts={parts} services={services} classes={classes} />
     </div>
   );
 };
