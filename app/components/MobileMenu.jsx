@@ -283,7 +283,7 @@ const MobileMenu = ({ products, services, classes }) => {
                   className=" cursor-pointer transition-all duration-500 ease-in-out"
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (L1MenuActive == "service") {
+                    if (L1MenuActive == "services") {
                       setL1MenuActive(null);
                       return;
                     }

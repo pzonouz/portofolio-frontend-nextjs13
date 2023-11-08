@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { axiosClient } from "../utils/axios";
 import Loading from "../components/Loading";
+import Products from "../components/Products";
 
 const page = () => {
   const [products, setProducts] = useState([]);
@@ -20,6 +21,7 @@ const page = () => {
       }
     };
     fetchProducts();
+    console.log(products);
   }, []);
   return (
     <div className=" mt-6">
@@ -28,16 +30,7 @@ const page = () => {
         تمام محصولات
       </div>
       <div className=" my-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-6 mx-3 items-stretch">
-        {products?.map((item) => {
-          return (
-            <Card
-              key={item.id}
-              name={item.name}
-              image={item.image}
-              link={`/products/by_id/${item.id}/`}
-            />
-          );
-        })}
+        <Products products={products} />
       </div>
     </div>
   );

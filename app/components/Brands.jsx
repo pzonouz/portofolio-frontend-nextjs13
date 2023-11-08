@@ -18,12 +18,12 @@ const Brands = () => {
     fetchBrands();
   }, []);
   return (
-    <div className=" mx-[1rem] py-12 flex flex-col bg-gray-200 ">
+    <div className=" px-[1rem] py-12 flex flex-col bg-gray-200 ">
       {loading ? <Loading /> : ""}
       <div className=" -mb-12 text-red-600 font-bold text-2xl text-center">
         جاویدان صنعت
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {brands?.map((item) => {
           return (
             <div key={item.id} className="flex flex-col mt-20 items-center">

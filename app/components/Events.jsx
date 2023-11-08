@@ -37,8 +37,9 @@ const Events = () => {
           {events.map((event) => {
             return (
               <div key={event.id} className="embla__slide">
-                <div>{event.name}</div>
-                <div key={event.id} className="h_iframe-aparat_embed_frame">
+                <div className=" px-4">{event.name}</div>
+                <img src={event.image} />
+                {/* <div key={event.id} className="h_iframe-aparat_embed_frame">
                   <span style={{ display: "block", paddingTop: "57%" }}></span>
                   <iframe
                     src={event.video_link}
@@ -46,7 +47,7 @@ const Events = () => {
                     webkitallowfullscreen="true"
                     mozallowfullscreen="true"
                   ></iframe>
-                </div>
+                </div> */}
               </div>
             );
           })}
