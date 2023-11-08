@@ -28,9 +28,7 @@ const page = () => {
       <div className=" bg-red-600 h-28 text-3xl text-white text-center align-middle leading-[7rem]">
         تمام محصولات
       </div>
-      <div className=" my-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-6 mx-3 items-stretch">
-        <Products products={products} />
-      </div>
+      <Products products={products} />
     </div>
   );
 };

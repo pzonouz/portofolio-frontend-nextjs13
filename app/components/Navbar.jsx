@@ -35,7 +35,7 @@ const Navbar = () => {
     <div>
       {loading ? <Loading /> : ""}
       <TopBar />
-      <DesktopMenu products={parts} />
+      <DesktopMenu parts={parts} services={services} classes={classes} />
       <MobileMenu parts={parts} services={services} classes={classes} />
     </div>
   );

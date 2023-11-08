@@ -1,12 +1,9 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import "./DesktopMenu.css";
 
-const DesktopMenu = ({ products }) => {
-  const [L1MenuActive, setL1MenuActive] = useState(null);
-  const [L2MenuActive, setL2MenuActive] = useState(null);
-  const [L3MenuActive, setL3MenuActive] = useState(null);
-
+const DesktopMenu = ({ parts, services, classes }) => {
   return (
     <div
       id="L1 Menu"
@@ -14,138 +11,60 @@ const DesktopMenu = ({ products }) => {
     >
       <Link href="/">LOGO</Link>
       <div
-        className={` relative flex flex-row-reverse gap-2 items-center cursor-pointer p-2 ${
-          L1MenuActive == "Products" ? " text-red-600" : ""
-        }`}
+        className={` text-lg relative flex flex-row-reverse gap-2 items-center p-2 `}
         key="1"
-        onClick={() => {
-          if (L1MenuActive == "Products") {
-            setL1MenuActive(null);
-            return;
-          }
-          setL1MenuActive("Products");
-          setL2MenuActive(null);
-          setL3MenuActive(null);
-        }}
       >
-        <i
-          className={` cursor-pointer fa ${
-            !(L1MenuActive == "Products") ? " fa-plus" : "fa-minus"
-          }`}
-        ></i>
         <Link
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          href={`/products`}
+          href={`/products/parts`}
+          className="peer hover:text-red-600 hover:font-bold"
         >
           محصولات
         </Link>
         <div
           id="L2 Menu"
-          className={`${
-            L1MenuActive == "Products" ? "flex" : "hidden"
-          } absolute top-14 right-0 flex-col bg-slate-800 w-48 items-center justify-center `}
+          className={` bg-white hidden hover:flex peer-hover:flex inAnimation absolute right-0 top-8 flex-col w-48 items-start justify-center align-middle `}
         >
-          {Array.isArray(products)
-            ? products.map((item1) => {
+          {Array.isArray(parts)
+            ? parts.map((item1) => {
                 return (
                   <div
-                    className={` text-left h-8 cursor-default flex flex-row-reverse gap-2 items-center justify-between relative w-full px-2
-                      ${
-                        L2MenuActive == item1.id
-                          ? " bg-red-600 text-white"
-                          : "text-white"
-                      }`}
+                    className={`group/level1 hover:text-red-600 border-b-[1px] border-gray-200 w-48 flex flex-row-reverse gap-2 justify-start relative px-2
+                      `}
                     key={item1.id}
                   >
-                    {item1.children.length ? (
-                      <i
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (L2MenuActive === item1.id) {
-                            setL2MenuActive(null);
-                            return;
-                          }
-                          setL2MenuActive(item1.id);
-                          setL3MenuActive(null);
-                        }}
-                        className={` cursor-pointer fa ${
-                          !(L2MenuActive === item1.id) ? "fa-plus" : "fa-minus"
-                        }`}
-                      ></i>
-                    ) : (
-                      ""
-                    )}
-                    <Link href={`/products/by_level1/${item1.id}`}>
+                    <Link
+                      href={`/products/by_level1/${item1.id}`}
+                      className=" w-48"
+                    >
                       {item1.name}
                     </Link>
                     <div
                       id="L3 Menu"
-                      className={`${
-                        L2MenuActive === item1.id ? "flex" : "hidden"
-                      } absolute top-0 right-48 flex-col bg-slate-800 w-48 items-center justify-center `}
+                      className={`hidden bg-white group-hover/level1:flex  hover:flex absolute inAnimation  right-48 flex-col w-48 items-start justify-center px-2 align-middle `}
                     >
                       {item1.children.map((item2) => {
                         return (
                           <div
-                            className={`${
-                              L2MenuActive === item1.id ? "" : "hidden"
-                            } h-8 flex flex-row-reverse gap-2 items-center justify-between p-2 relative w-full ${
-                              L3MenuActive == item2.id
-                                ? " bg-red-600 text-white"
-                                : ""
-                            } `}
                             key={item2.id}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              if (L3MenuActive === item2.id) {
-                                setL3MenuActive(null);
-                                return;
-                              }
-                              setL3MenuActive(item2.id);
-                            }}
+                            className=" group/level2 w-full text-black hover:text-red-600 border-b-[1px] border-gray-200 flex flex-row-reverse gap-2 justify-start relative px-2"
                           >
-                            {item2.children.length ? (
-                              <i
-                                className={` cursor-pointer fa ${
-                                  !(L3MenuActive === item2.id)
-                                    ? "fa-plus"
-                                    : "fa-minus"
-                                }`}
-                              ></i>
-                            ) : (
-                              ""
-                            )}
                             <Link
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setL1MenuActive(false);
-                                setL2MenuActive(false);
-                              }}
                               href={`/products/by_level2/${item2.id}`}
+                              className=" w-full"
                             >
                               {item2.name}
                             </Link>
 
                             <div
                               id="L4 Menu"
-                              className={`${
-                                L3MenuActive === item2.id ? "flex" : "hidden"
-                              } absolute top-0 right-48 flex-col bg-slate-800 w-48 items-center justify-center `}
+                              className={`hidden bg-white group-hover/level2:flex  hover:flex absolute inAnimation right-44 flex-col w-48 items-start justify-center px-2 align-middle`}
                             >
                               {item2.children?.map((item3) => {
                                 return (
                                   <Link
                                     href={`/products/by_level3/${item3.id}`}
-                                    className={`${
-                                      L3MenuActive === item2.id ? "" : "hidden"
-                                    } h-8 flex flex-row gap-2 items-center justify-center relative w-full  hover:bg-red-600 hover:text-white `}
+                                    className={` text-black hover:text-red-600 border-b-[1px] border-gray-200 flex flex-row-reverse gap-2 justify-start relative px-2 `}
                                     key={item3.id}
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      setL1MenuActive(null);
-                                    }}
                                   >
                                     {item3.name}
                                   </Link>
@@ -161,6 +80,159 @@ const DesktopMenu = ({ products }) => {
               })
             : ""}
         </div>
+      </div>
+      <div
+        className={` text-lg relative flex flex-row-reverse gap-2 items-center p-2 `}
+        key="2"
+      >
+        <Link
+          href={`/products/services`}
+          className="peer hover:text-red-600 hover:font-bold"
+        >
+          خدمات۳۶۰
+        </Link>
+        <div
+          id="L2 Menu"
+          className={` bg-white hidden hover:flex peer-hover:flex inAnimation absolute right-0 top-8 flex-col w-48 items-start justify-center align-middle `}
+        >
+          {Array.isArray(services)
+            ? services.map((item1) => {
+                return (
+                  <div
+                    className={`group/level1 hover:text-red-600 border-b-[1px] border-gray-200 w-48 flex flex-row-reverse gap-2 justify-start relative px-2
+                      `}
+                    key={item1.id}
+                  >
+                    <Link
+                      href={`/products/by_level1/${item1.id}`}
+                      className=" w-48"
+                    >
+                      {item1.name}
+                    </Link>
+                    <div
+                      id="L3 Menu"
+                      className={`hidden bg-white group-hover/level1:flex  hover:flex absolute inAnimation  right-48 flex-col w-48 items-start justify-center px-2 align-middle `}
+                    >
+                      {item1.children.map((item2) => {
+                        return (
+                          <div
+                            key={item2.id}
+                            className=" group/level2 w-full text-black hover:text-red-600 border-b-[1px] border-gray-200 flex flex-row-reverse gap-2 justify-start relative px-2"
+                          >
+                            <Link
+                              href={`/products/by_level2/${item2.id}`}
+                              className=" w-full"
+                            >
+                              {item2.name}
+                            </Link>
+
+                            <div
+                              id="L4 Menu"
+                              className={`hidden bg-white group-hover/level2:flex  hover:flex absolute inAnimation right-44 flex-col items-start justify-center px-2 align-middle`}
+                            >
+                              {item2.children?.map((item3) => {
+                                return (
+                                  <Link
+                                    href={`/products/by_level3/${item3.id}`}
+                                    className={` text-black hover:text-red-600 border-b-[1px] border-gray-200 flex flex-row-reverse gap-2 w-full justify-start relative px-2 `}
+                                    key={item3.id}
+                                  >
+                                    {item3.name}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })
+            : ""}
+        </div>
+      </div>
+      <div
+        className={` text-lg relative flex flex-row-reverse gap-2 items-center p-2 `}
+        key="2"
+      >
+        <Link
+          href={`/products/classes`}
+          className="peer hover:text-red-600 hover:font-bold"
+        >
+          آموزشگاه فنی حرفه ای
+        </Link>
+        <div
+          id="L2 Menu"
+          className={` bg-white hidden hover:flex peer-hover:flex inAnimation absolute right-0 top-8 flex-col w-48 items-start justify-center align-middle `}
+        >
+          {Array.isArray(classes)
+            ? classes.map((item1) => {
+                return (
+                  <div
+                    className={`group/level1 hover:text-red-600 border-b-[1px] border-gray-200 w-48 flex flex-row-reverse gap-2 justify-start relative px-2
+                      `}
+                    key={item1.id}
+                  >
+                    <Link
+                      href={`/products/by_level1/${item1.id}`}
+                      className=" w-48"
+                    >
+                      {item1.name}
+                    </Link>
+                    <div
+                      id="L3 Menu"
+                      className={`hidden bg-white group-hover/level1:flex  hover:flex absolute inAnimation  right-48 flex-col w-48 items-start justify-center px-2 align-middle `}
+                    >
+                      {item1.children.map((item2) => {
+                        return (
+                          <div
+                            key={item2.id}
+                            className=" group/level2 w-full text-black hover:text-red-600 border-b-[1px] border-gray-200 flex flex-row-reverse gap-2 justify-start relative px-2"
+                          >
+                            <Link
+                              href={`/products/by_level2/${item2.id}`}
+                              className=" w-full"
+                            >
+                              {item2.name}
+                            </Link>
+
+                            <div
+                              id="L4 Menu"
+                              className={`hidden bg-white group-hover/level2:flex  hover:flex absolute inAnimation right-44 flex-col items-start justify-center px-2 align-middle`}
+                            >
+                              {item2.children?.map((item3) => {
+                                return (
+                                  <Link
+                                    href={`/products/by_level3/${item3.id}`}
+                                    className={` text-black hover:text-red-600 border-b-[1px] border-gray-200 flex flex-row-reverse gap-2 w-full justify-start relative px-2 `}
+                                    key={item3.id}
+                                  >
+                                    {item3.name}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })
+            : ""}
+        </div>
+      </div>{" "}
+      <div
+        className={` text-lg relative flex flex-row-reverse gap-2 items-center p-2 `}
+        key="2"
+      >
+        <Link
+          href={`/products/projects`}
+          className="peer hover:text-red-600 hover:font-bold"
+        >
+          پروژه ها
+        </Link>
       </div>
     </div>
   );

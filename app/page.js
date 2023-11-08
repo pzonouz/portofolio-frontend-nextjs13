@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 
 export default function RootPage() {
   return (
-    <main>
+    <main className=" grid grid-cols-2">
       <EmblaCarousel />
       <ProductBanners />
       <Features />

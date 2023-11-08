@@ -18,7 +18,7 @@ const Brands = () => {
     fetchBrands();
   }, []);
   return (
-    <div className=" px-[1rem] py-12 flex flex-col bg-gray-200 ">
+    <div className=" px-[1rem] py-12 flex flex-col bg-gray-200 md:col-span-2 md:mx-[1rem] ">
       {loading ? <Loading /> : ""}
       <div className=" -mb-12 text-red-600 font-bold text-2xl text-center">
         جاویدان صنعت

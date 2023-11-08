@@ -14,7 +14,7 @@ const ProductBanners = () => {
     fetchBanners();
   }, []);
   return (
-    <div className="mx-[1rem] flex flex-col gap-6 mt-6">
+    <div className="mx-[1rem] flex flex-col gap-6 md:gap-10 md:mx-6 md:h-screen mt-6 md:mt-4 ">
       {banners.map((item) => {
         return <ProductBanner key={item.id} item={item} />;
       })}

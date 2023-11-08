@@ -301,7 +301,7 @@ const MobileMenu = ({ parts, services, classes }) => {
                  ? "theme-menu-selected-background-color"
                  : ""
              }`}
-            key={1}
+            key={2}
           >
             <div className={`px-4 flex flex-row items-center justify-between`}>
               <Link
@@ -507,7 +507,7 @@ const MobileMenu = ({ parts, services, classes }) => {
                  ? "theme-menu-selected-background-color"
                  : ""
              }`}
-            key={1}
+            key={3}
           >
             <div className={`px-4 flex flex-row items-center justify-between`}>
               <Link
