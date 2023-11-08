@@ -1,31 +1,31 @@
 "use client";
 
 import Loading from "@/app/components/Loading";
-import Product from "@/app/components/Product";
+import Project from "@/app/components/Project";
 import { axiosClient } from "@/app/utils/axios";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const page = ({ params }) => {
   let { id } = params;
-  const [product, setProduct] = useState({});
+  const [project, setProject] = useState({});
   const [loading, setLoading] = useState({});
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchProject = async () => {
       try {
         setLoading(true);
-        const response = await axiosClient.get(`/products/by_id/${id}/`);
-        setProduct(response.data);
+        const response = await axiosClient.get(`/projects/by_id/${id}/`);
+        setProject(response.data);
         setLoading(false);
       } catch (error) {
         alert(error);
       }
     };
-    fetchProduct();
+    fetchProject();
   }, []);
 
-  return <Product loading={loading} product={product} />;
+  return <Project loading={loading} project={project} />;
 };
 
 export default page;
