@@ -66,7 +66,29 @@ const MobileMenu = ({ products, services, classes }) => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{ lineHeight: "4rem" }}
+            style={{
+              lineHeight: "3rem",
+              borderBottom: "solid 1px rgb(156 163 175)",
+            }}
+            className={`w-full
+         text-2xl `}
+          >
+            <Link
+              onClick={() => {
+                mobileToggleClickHandler();
+              }}
+              className="px-4 flex flex-row items-center justify-between"
+              href="/"
+            >
+              صفحه اصلی
+            </Link>
+          </div>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              lineHeight: "3rem",
+              borderBottom: "solid 1px rgb(156 163 175)",
+            }}
             className={`w-full
              text-2xl ${
                L1MenuActive == "products"
@@ -78,7 +100,7 @@ const MobileMenu = ({ products, services, classes }) => {
             <div className={`px-4 flex flex-row items-center justify-between`}>
               <Link
                 className=""
-                href="/products"
+                href="/products/parts"
                 onClick={() => {
                   setMobileMenuVisible(false);
                 }}
@@ -118,7 +140,10 @@ const MobileMenu = ({ products, services, classes }) => {
                       onClick={(e) => {
                         e.stopPropagation();
                       }}
-                      style={{ lineHeight: "4rem" }}
+                      style={{
+                        lineHeight: "3rem",
+                        borderBottom: "solid 1px rgb(156 163 175)",
+                      }}
                       className={` text-center text-xl w-full ${
                         L2MenuActive == item1.name
                           ? " theme-menu-selected-background-color theme-menu-text-color border-b-2"
@@ -171,7 +196,10 @@ const MobileMenu = ({ products, services, classes }) => {
                           return (
                             <div
                               onClick={(e) => e.stopPropagation()}
-                              style={{ lineHeight: "4rem" }}
+                              style={{
+                                lineHeight: "3rem",
+                                borderBottom: "solid 1px rgb(156 163 175)",
+                              }}
                               className={`${
                                 L2MenuActive === item1.name ? "" : "hidden"
                               } w-full text-lg ${
@@ -228,7 +256,11 @@ const MobileMenu = ({ products, services, classes }) => {
                                   return (
                                     <Link
                                       href={`/products/by_level3/${item3.id}`}
-                                      style={{ lineHeight: "4rem" }}
+                                      style={{
+                                        lineHeight: "3rem",
+                                        borderBottom:
+                                          "solid 1px rgb(156 163 175)",
+                                      }}
                                       className={`${
                                         L3MenuActive === item2.name
                                           ? ""
@@ -259,7 +291,10 @@ const MobileMenu = ({ products, services, classes }) => {
           </div>
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{ lineHeight: "4rem" }}
+            style={{
+              lineHeight: "3rem",
+              borderBottom: "solid 1px rgb(156 163 175)",
+            }}
             className={`w-full
              text-2xl ${
                L1MenuActive == "services"
@@ -271,7 +306,7 @@ const MobileMenu = ({ products, services, classes }) => {
             <div className={`px-4 flex flex-row items-center justify-between`}>
               <Link
                 className=""
-                href="/services"
+                href="/products/services/"
                 onClick={() => {
                   setMobileMenuVisible(false);
                 }}
@@ -311,7 +346,10 @@ const MobileMenu = ({ products, services, classes }) => {
                       onClick={(e) => {
                         e.stopPropagation();
                       }}
-                      style={{ lineHeight: "4rem" }}
+                      style={{
+                        lineHeight: "3rem",
+                        borderBottom: "solid 1px rgb(156 163 175)",
+                      }}
                       className={` text-center text-xl w-full ${
                         L2MenuActive == item1.name
                           ? " theme-menu-selected-background-color theme-menu-text-color border-b-2"
@@ -364,7 +402,10 @@ const MobileMenu = ({ products, services, classes }) => {
                           return (
                             <div
                               onClick={(e) => e.stopPropagation()}
-                              style={{ lineHeight: "4rem" }}
+                              style={{
+                                lineHeight: "3rem",
+                                borderBottom: "solid 1px rgb(156 163 175)",
+                              }}
                               className={`${
                                 L2MenuActive === item1.name ? "" : "hidden"
                               } w-full text-lg ${
@@ -421,7 +462,11 @@ const MobileMenu = ({ products, services, classes }) => {
                                   return (
                                     <Link
                                       href={`/products/by_level3/${item3.id}`}
-                                      style={{ lineHeight: "4rem" }}
+                                      style={{
+                                        lineHeight: "3rem",
+                                        borderBottom:
+                                          "solid 1px rgb(156 163 175)",
+                                      }}
                                       className={`${
                                         L3MenuActive === item2.name
                                           ? ""
@@ -452,7 +497,10 @@ const MobileMenu = ({ products, services, classes }) => {
           </div>
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{ lineHeight: "4rem" }}
+            style={{
+              lineHeight: "3rem",
+              borderBottom: "solid 1px rgb(156 163 175)",
+            }}
             className={`w-full
              text-2xl ${
                L1MenuActive == "classes"
@@ -464,7 +512,7 @@ const MobileMenu = ({ products, services, classes }) => {
             <div className={`px-4 flex flex-row items-center justify-between`}>
               <Link
                 className=""
-                href="/classes"
+                href="/products/classes"
                 onClick={() => {
                   setMobileMenuVisible(false);
                 }}
@@ -504,7 +552,10 @@ const MobileMenu = ({ products, services, classes }) => {
                       onClick={(e) => {
                         e.stopPropagation();
                       }}
-                      style={{ lineHeight: "4rem" }}
+                      style={{
+                        lineHeight: "3rem",
+                        borderBottom: "solid 1px rgb(156 163 175)",
+                      }}
                       className={` text-center text-xl w-full ${
                         L2MenuActive == item1.name
                           ? " theme-menu-selected-background-color theme-menu-text-color border-b-2"
@@ -557,7 +608,10 @@ const MobileMenu = ({ products, services, classes }) => {
                           return (
                             <div
                               onClick={(e) => e.stopPropagation()}
-                              style={{ lineHeight: "4rem" }}
+                              style={{
+                                lineHeight: "3rem",
+                                borderBottom: "solid 1px rgb(156 163 175)",
+                              }}
                               className={`${
                                 L2MenuActive === item1.name ? "" : "hidden"
                               } w-full text-lg ${
@@ -614,7 +668,11 @@ const MobileMenu = ({ products, services, classes }) => {
                                   return (
                                     <Link
                                       href={`/products/by_level3/${item3.id}`}
-                                      style={{ lineHeight: "4rem" }}
+                                      style={{
+                                        lineHeight: "3rem",
+                                        borderBottom:
+                                          "solid 1px rgb(156 163 175)",
+                                      }}
                                       className={`${
                                         L3MenuActive === item2.name
                                           ? ""

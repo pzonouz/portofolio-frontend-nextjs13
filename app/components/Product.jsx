@@ -8,13 +8,6 @@ const Product = ({ product, loading }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentIndex] = useState(0);
 
-  const gotoPrevious = () =>
-    currentImageIndex > 0 && setCurrentIndex(currentImageIndex - 1);
-
-  const gotoNext = () =>
-    currentImageIndex + 1 < images.length &&
-    setCurrentIndex(currentImageIndex + 1);
-
   useEffect(() => {
     product.images?.map((item) => {
       setImages((prevState) => [
@@ -47,8 +40,8 @@ const Product = ({ product, loading }) => {
           </div>
           <Lightbox
             isOpen={isOpen}
-            onPrev={gotoPrevious}
-            onNext={gotoNext}
+            // onPrev={gotoPrevious}
+            // onNext={gotoNext}
             images={images}
             currentIndex={currentImageIndex}
           />
@@ -89,21 +82,26 @@ const Product = ({ product, loading }) => {
               );
             })}
           </div>
-          <ul
-            id="descriptions"
-            className=" mt-8   tracking-wider w-full px-4 flex flex-col items-start justify-center"
-          >
-            <li className=" text-white bg-red-600 w-full py-2 px-2 rounded-t-lg">
-              مشخصات فنی
-            </li>
-            {product.descriptions?.map((item) => {
-              return (
-                <li className=" odd:bg-gray-200 even:text-gray-800 px-2 py-2 w-full">
-                  {item.field}
-                </li>
-              );
-            })}
-          </ul>
+          {product.productType != "Sr" ? (
+            <ul
+              id="descriptions"
+              className=" mt-8   tracking-wider w-full px-4 flex flex-col items-start justify-center"
+            >
+              <li className=" text-white bg-red-600 w-full py-2 px-2 rounded-t-lg">
+                {product.productType == "Pt" ? "مشخصات فنی" : ""}
+                {product.productType == "Cl" ? "مشخصات کلاس" : ""}
+              </li>
+              {product.descriptions?.map((item) => {
+                return (
+                  <li className=" odd:bg-gray-200 even:text-gray-800 px-2 py-2 w-full">
+                    {item.field}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            ""
+          )}
         </div>
       </div>
 
