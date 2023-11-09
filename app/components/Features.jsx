@@ -1,6 +1,6 @@
 const Features = () => {
   return (
-    <div className=" flex flex-row h-16 gap-2 justify-around my-10 md:col-span-2">
+    <div className=" flex flex-row h-16 gap-2 justify-around my-10 md:col-start-1 md:col-span-full md:h-36">
       <img src="/24-7.png" alt="24-7" className="" />
       <img src="/360.png" alt="360" className="" />
       <img src="/cac.png" alt="cac" className="" />

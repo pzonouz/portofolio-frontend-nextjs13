@@ -30,29 +30,23 @@ const Events = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <div>
+    <div className=" md:col-span-full mt-10 mx-[1rem]">
+      <div className=" text-center text-2xl font-bold text-red-600">
+        رویدادها
+      </div>
       {loading ? <Loading /> : ""}
-      <div className="embla" ref={emblaRef}>
-        <div className="embla__container">
+      <div className="embla-events" ref={emblaRef}>
+        <div className="embla__container-events">
           {events.map((event) => {
             return (
-              <div key={event.id} className="embla__slide">
+              <div key={event.id} className="embla__slide-events">
                 <div className=" px-4">{event.name}</div>
                 <img src={event.image} />
-                {/* <div key={event.id} className="h_iframe-aparat_embed_frame">
-                  <span style={{ display: "block", paddingTop: "57%" }}></span>
-                  <iframe
-                    src={event.video_link}
-                    allowFullScreen={true}
-                    webkitallowfullscreen="true"
-                    mozallowfullscreen="true"
-                  ></iframe>
-                </div> */}
               </div>
             );
           })}
         </div>
-        <div className="relative">
+        {/* <div className="relative">
           <div className=" flex flex-row gap-2  absolute bottom-3 right-1/2 translate-x-1/2">
             {emblaApi?.scrollSnapList().map((item, index) => {
               return (
@@ -70,7 +64,7 @@ const Events = () => {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

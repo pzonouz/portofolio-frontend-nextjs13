@@ -1,27 +1,22 @@
-.h_iframe-aparat_embed_frame {
-  position: relative;
-}
-.h_iframe-aparat_embed_frame .ratio {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.h_iframe-aparat_embed_frame iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.embla {
+.embla-events {
   overflow: hidden;
   margin: 1rem 0rem;
+  width: 100%;
+  margin-top: 2rem;
 }
-.embla__container {
+.embla__container-events {
   display: flex;
   flex-direction: row-reverse;
 }
-.embla__slide {
+.embla__slide-events {
   flex: 0 0 100%;
   min-width: 0;
+}
+@media (min-width: 528px) {
+  .embla__slide-events {
+    flex: 0 0 45%;
+  }
+  .embla__container-events {
+    gap: 1rem;
+  }
 }

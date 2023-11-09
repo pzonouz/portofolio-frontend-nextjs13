@@ -6,6 +6,7 @@ import MobileMenu from "./MobileMenu";
 import TopBar from "./TopBar";
 import { axiosClient } from "../utils/axios";
 import Loading from "./Loading";
+import FixedMenu from "./FixedMenu";
 
 const Navbar = () => {
   const [loading, setLoading] = useState(false);
@@ -33,6 +34,7 @@ const Navbar = () => {
   }, []);
   return (
     <div>
+      <FixedMenu />
       {loading ? <Loading /> : ""}
       <TopBar />
       <DesktopMenu parts={parts} services={services} classes={classes} />

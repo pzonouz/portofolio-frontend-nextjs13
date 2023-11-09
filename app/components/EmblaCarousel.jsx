@@ -33,7 +33,7 @@ export const EmblaCarousel = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className=" md:mx-2 md:h-screen md:mb-4">
+    <div className="px-[1rem] mt-5 md:mt-0">
       {loading ? <Loading /> : ""}
       <div className="embla" ref={emblaRef}>
         <div className="embla__container">

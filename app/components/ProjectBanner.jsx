@@ -8,7 +8,7 @@ const ProjectBanner = ({ project }) => {
           <img
             alt={project.image}
             src={project.image}
-            className="group-hover:scale-110 transition-all duration-500 ease-in-out"
+            className="group-hover:scale-110 transition-all duration-500 ease-in-out max-w-md"
           />
         </Link>
       </div>

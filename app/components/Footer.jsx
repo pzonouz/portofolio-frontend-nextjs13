@@ -21,7 +21,7 @@ const Footer = () => {
         این وب‌‌سایت متعلق به شرکت جاویدان صنعت می‌باشد و تمامی حقوق آن محفوظ
         است.
       </div>
-      <div className=" text-sm w-full bottom-0 text-left">
+      <div className=" text-sm w-full bottom-0 md:text-right">
         طراحی و اجرا:
         <a href="http://peyman-khalili.ir"> پیمان خلیلی</a>
       </div>

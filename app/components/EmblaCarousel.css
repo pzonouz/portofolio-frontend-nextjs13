@@ -1,6 +1,5 @@
 .embla {
   overflow: hidden;
-  /* margin: 0 1rem; */
 }
 .embla__container {
   display: flex;
@@ -9,4 +8,6 @@
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
+  border: 1px solid black;
+  aspect-ratio: 2 / 1;
 }

@@ -9,10 +9,11 @@ import Events from "./components/Events";
 import Suppliers from "./components/suppliers";
 import VisitCards from "./components/VisitCards";
 import Footer from "./components/Footer";
+import FixedMenu from "./components/FixedMenu";
 
 export default function RootPage() {
   return (
-    <main className=" grid grid-cols-2">
+    <main className=" grid grid-cols-1 md:grid-cols-2">
       <EmblaCarousel />
       <ProductBanners />
       <Features />
