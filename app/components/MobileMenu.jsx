@@ -27,7 +27,7 @@ const MobileMenu = ({ parts, services, classes }) => {
   };
   return (
     <div className="md:hidden">
-      <div className=" h-16 relative flex flex-row items-center justify-around bg-red-600">
+      <div className=" relative overflow-hidden h-16 flex flex-row items-center bg-red-600">
         <div
           id="mobileMenuToggle"
           className=" cursor-pointer"
@@ -37,15 +37,18 @@ const MobileMenu = ({ parts, services, classes }) => {
             className={`${
               mobileMenuVisible
                 ? ""
-                : "fa fa-bars fa-lg text-white bg-red-600 p-2"
+                : "fa fa-bars fa-lg text-white bg-red-600 p-2 pr-4"
             }`}
           ></div>
         </div>
-        <div className="theme-text-color font-bold">
+        <div className="theme-text-color font-bold pr-4 flex flex-col items-center">
           <Link href="/">گروه جاویدان صنعت</Link>
+          <Link href="/" className=" text-[0.7rem]">
+            فردای روشن خدمات
+          </Link>
         </div>
-        <Link href="/" className="text-lg cursor-pointer">
-          <img src="/30-reduced.png" alt="logo" className=" w-12 h-12" />
+        <Link href="/" className="text-lg cursor-pointer absolute left-0">
+          <img src="/arm2000.png" alt="logo" className=" h-[4.2rem]" />
         </Link>
       </div>
       <div

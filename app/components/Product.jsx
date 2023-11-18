@@ -35,13 +35,15 @@ const Product = ({ product, loading }) => {
         </div>
         <div className=" flex flex-col ga-10">
           <div className=" text-4xl mx-2 text-center"> {product.name}</div>
-          <div id="preamble" className=" text-gray-600 px-4">
+          <div
+            id="preamble"
+            className=" text-gray-600 px-4"
+            style={{ whiteSpace: "pre-line" }}
+          >
             {product.preamble}
           </div>
           <Lightbox
             isOpen={isOpen}
-            // onPrev={gotoPrevious}
-            // onNext={gotoNext}
             images={images}
             currentIndex={currentImageIndex}
           />

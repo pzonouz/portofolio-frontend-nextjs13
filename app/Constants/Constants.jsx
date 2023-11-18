@@ -1,1 +1,1 @@
-export const BACKEND_URL = "http://192.168.1.103:8000";
+export const BACKEND_URL = "https://javidan-sanat-backend.iran.liara.run/";
