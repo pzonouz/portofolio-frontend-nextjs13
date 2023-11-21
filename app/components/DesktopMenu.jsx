@@ -214,13 +214,15 @@ const DesktopMenu = ({ parts, services, classes }) => {
 
                               <div
                                 id="L4 Menu"
-                                className={`hidden bg-white group-hover/level2:flex  hover:flex absolute inAnimation right-44 flex-col items-start justify-center px-2 align-middle`}
+                                style={{ width: "10rem" }}
+                                className={` w-full hidden bg-white group-hover/level2:flex  hover:flex absolute inAnimation right-44 flex-col items-start justify-center px-2 align-middle`}
                               >
                                 {item2.children?.map((item3) => {
                                   return (
                                     <Link
+                                      style={{ width: "10rem" }}
                                       href={`/products/by_level3/${item3.id}`}
-                                      className={` text-black hover:text-red-600 border-b-[1px] border-gray-200 flex flex-row-reverse gap-2 w-full justify-start relative px-2 `}
+                                      className={` text-black hover:text-red-600 border-b-[1px] border-gray-200 relative px-2 text-right `}
                                       key={item3.id}
                                     >
                                       {item3.name}
