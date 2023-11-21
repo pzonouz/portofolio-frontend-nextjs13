@@ -7,6 +7,7 @@ import "./EmblaCarousel.css";
 import Loading from "./Loading";
 import { axiosClient } from "../utils/axios";
 import Link from "next/link";
+import Image from "next/image";
 
 export const EmblaCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
@@ -44,7 +45,12 @@ export const EmblaCarousel = () => {
                 key={item.id}
                 className="embla__slide"
               >
-                <img src={item.image} alt={item.name} />
+                <Image
+                  width={700}
+                  height={700}
+                  src={item.image}
+                  alt={item.name}
+                />
               </Link>
             );
           })}

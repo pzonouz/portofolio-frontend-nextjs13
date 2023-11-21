@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 // eslint-disable-next-line react/prop-types
@@ -8,7 +9,7 @@ const Card = ({ name, image, link }) => {
      w-full flex flex-col justify-between gap-2 p-5"
     >
       <Link href={link}>
-        <img src={image} alt={name} />
+        <Image src={image} alt={name} width={300} height={300} />
       </Link>
       <Link href={link} className=" text-gray-800 text-center font-semibold">
         {name}

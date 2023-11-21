@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const AtOneGlance = () => {
   return (
     <div className=" flex flex-col justify-between gap-12 md:flex-row md:col-span-full items-center md:px-20 md:mt-10">
@@ -11,8 +13,7 @@ const AtOneGlance = () => {
           نمایش کاتالوگ جاویدان
         </div>
       </div>
-
-      <img alt="catalog" src="/catalog.png" className="" />
+      <Image alt="catalog" src="/catalog.png" width={300} height={300} />
     </div>
   );
 };

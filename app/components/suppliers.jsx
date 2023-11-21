@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { axiosClient } from "../utils/axios";
+import Image from "next/image";
 
 const Suppliers = () => {
   const [brands, setBrands] = useState([]);
@@ -17,7 +18,13 @@ const Suppliers = () => {
       <div className=" flex items-center justify-around mt-4">
         {brands.map((brand) => {
           return (
-            <img key={brand.id} className="w-16" src={brand.image_small} />
+            <Image
+              width={300}
+              height={300}
+              key={brand.id}
+              className=" w-20 md:w-36"
+              src={brand.image_small}
+            />
           );
         })}
       </div>

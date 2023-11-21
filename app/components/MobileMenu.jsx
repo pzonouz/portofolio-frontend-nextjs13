@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import "./MobileMenu.css";
+import Image from "next/image";
 
 const MobileMenu = ({ parts, services, classes }) => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
@@ -48,7 +49,13 @@ const MobileMenu = ({ parts, services, classes }) => {
           </Link>
         </div>
         <Link href="/" className="text-lg cursor-pointer absolute left-0">
-          <img src="/arm2000.png" alt="logo" className=" h-[4.2rem]" />
+          <Image
+            width={256}
+            height={216}
+            src="/arm2000.png"
+            alt="logo"
+            className=" h-[4.2rem]"
+          />
         </Link>
       </div>
       <div

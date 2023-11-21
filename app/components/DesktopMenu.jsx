@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import "./DesktopMenu.css";
+import Image from "next/image";
 
 const DesktopMenu = ({ parts, services, classes }) => {
   return (
@@ -14,7 +15,9 @@ const DesktopMenu = ({ parts, services, classes }) => {
           تجهیزات،خدمات،کالیبراسیون،آموزش
         </Link>
         <Link href="/">
-          <img
+          <Image
+            width={200}
+            height={200}
             src="/arm200.png"
             className=" h-[8.5rem] absolute top-1/2 -right-1 -translate-y-1/2"
           />

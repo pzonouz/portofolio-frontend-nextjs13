@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { axiosClient } from "../utils/axios";
 import Link from "next/link";
 import Loading from "./Loading";
+import Image from "next/image";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
@@ -37,7 +38,9 @@ const Brands = () => {
               >
                 نمایش محصولات
               </Link>
-              <img
+              <Image
+                width={400}
+                height={400}
                 className="mt-6"
                 src={`${item.image_large}`}
                 alt="item.name"

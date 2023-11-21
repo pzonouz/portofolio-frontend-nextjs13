@@ -6,6 +6,7 @@ import { axiosClient } from "../utils/axios";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Loading from "./Loading";
+import Image from "next/image";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -41,7 +42,7 @@ const Events = () => {
             return (
               <div key={event.id} className="embla__slide-events">
                 <div className=" px-4">{event.name}</div>
-                <img src={event.image} />
+                <Image src={event.image} width={800} height={800} />
               </div>
             );
           })}

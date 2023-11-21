@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Lightbox from "react-spring-lightbox";
 import Loading from "@/app/components/Loading";
+import Image from "next/image";
 
 const Project = ({ project, loading }) => {
   const [images, setImages] = useState([]);
@@ -31,7 +32,7 @@ const Project = ({ project, loading }) => {
       {loading ? <Loading /> : ""}
       <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
         <div>
-          <img src={project.image} />
+          <Image width={800} height={800} src={project.image} />
         </div>
         <div className=" flex flex-col ga-10">
           <div className=" text-4xl mx-2 text-center"> {project.name}</div>
@@ -57,7 +58,9 @@ const Project = ({ project, loading }) => {
           >
             {images.map((item, index) => {
               return (
-                <img
+                <Image
+                  width={600}
+                  height={600}
                   className=" "
                   src={item.src}
                   onClick={(e) => {
