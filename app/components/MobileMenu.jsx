@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import "./MobileMenu.css";
 import Image from "next/image";
 
 const MobileMenu = ({ parts, services, classes }) => {
@@ -54,7 +53,7 @@ const MobileMenu = ({ parts, services, classes }) => {
             height={216}
             src="/arm2000.png"
             alt="logo"
-            className=" h-[4.2rem]"
+            className="h-[4.5rem] w-[5.5rem]"
           />
         </Link>
       </div>
