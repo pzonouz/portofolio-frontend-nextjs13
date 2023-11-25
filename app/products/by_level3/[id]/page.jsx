@@ -1,41 +1,24 @@
-"use client";
-
 import Card from "@/app/components/Card";
-import Loading from "@/app/components/Loading";
-import { axiosClient } from "@/app/utils/axios";
-import axios from "axios";
-import { useEffect, useState } from "react";
 
-const page = ({ params }) => {
+const page = async ({ params }) => {
   let { id } = params;
-  const [products, setProducts] = useState([]);
-  const [level3, setLevel3] = useState({});
-  const [loading, setLoading] = useState({});
+  const productsByLevel2Res = await fetch(
+    `${process.env.BACKEND_URL}/products/by_level2/${id}/`
+  );
+  const productsByLevel3 = await productsByLevel2Res.json();
 
-  useEffect(() => {
-    const fetchProductsAndLevel3 = async () => {
-      try {
-        setLoading(true);
-        let response = await axiosClient.get(`/products/by_level3/${id}/`);
-        setProducts(response.data);
-        response = await axiosClient.get(`/products/level3/${id}/`);
-        setLevel3(response.data);
-        setLoading(false);
-      } catch (error) {
-        alert(error);
-      }
-    };
-    fetchProductsAndLevel3();
-  }, []);
+  const level3Res = await fetch(
+    `${process.env.BACKEND_URL}/products/level3/${id}/`
+  );
+  const level3 = await level3Res.json();
 
   return (
     <div className=" mt-6">
-      {loading ? <Loading /> : ""}
       <div className=" bg-red-600 h-28 text-3xl text-white text-center align-middle leading-[7rem]">
         {level3.name}
       </div>
       <div className=" my-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-6 mx-3 items-stretch">
-        {products?.map((item) => {
+        {productsByLevel3?.map((item) => {
           return (
             <Card
               key={item.id}

@@ -1,10 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import Lightbox from "react-spring-lightbox";
-import Loading from "@/app/components/Loading";
 import Image from "next/image";
 
-const Project = ({ project, loading }) => {
+const Project = ({ project }) => {
   const [images, setImages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentIndex] = useState(0);
@@ -29,7 +28,6 @@ const Project = ({ project, loading }) => {
       className="mt-6  items-center justify-center"
       onClick={() => setIsOpen(false)}
     >
-      {loading ? <Loading /> : ""}
       <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
         <div>
           <Image width={800} height={800} src={project.image} />

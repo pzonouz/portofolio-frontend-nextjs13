@@ -248,7 +248,7 @@ const DesktopMenu = ({ parts, services, classes }) => {
           key="2"
         >
           <Link
-            href={`/products/projects`}
+            href={`/projects`}
             className="peer hover:text-red-600 hover:font-bold"
           >
             پروژه ها

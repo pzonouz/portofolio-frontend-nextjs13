@@ -4,29 +4,15 @@ import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import "./EmblaCarousel.css";
-import Loading from "./Loading";
-import { axiosClient } from "../utils/axios";
 import Link from "next/link";
 import Image from "next/image";
 
-export const EmblaCarousel = () => {
+export const EmblaCarousel = ({ carousel }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-  const [loading, setLoading] = useState(false);
-  const [carousel, setCarousel] = useState([]);
   const [carouselIndex, setCarouselIndex] = useState([]);
 
-  const fetchCarousel = async () => {
-    setLoading(true);
-    const response = await axiosClient.get("/products/carousel/");
-    setCarousel(response.data);
-    setLoading(false);
-  };
   const onSelect = useCallback((emblaApi, eventName) => {
     setCarouselIndex(emblaApi.selectedScrollSnap());
-  }, []);
-
-  useEffect(() => {
-    fetchCarousel();
   }, []);
 
   useEffect(() => {
@@ -35,10 +21,9 @@ export const EmblaCarousel = () => {
 
   return (
     <div className="px-[1rem] mt-5 md:mt-0">
-      {loading ? <Loading /> : ""}
       <div className="embla" ref={emblaRef}>
         <div className="embla__container">
-          {carousel.map((item) => {
+          {carousel?.map((item) => {
             return (
               <Link
                 href={`/products/by_id/${item.id}`}

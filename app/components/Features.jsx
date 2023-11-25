@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 const Features = () => {
   return (
     <div className=" flex flex-row h-16 gap-2 justify-around my-10 md:col-start-1 md:col-span-full md:h-36">

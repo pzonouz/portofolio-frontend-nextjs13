@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Rolling from "../../public/loading.svg";
 
-const Loading = () => {
+const LoadingComponent = () => {
   return (
     <div
       style={{ width: "100vw", height: "100vh" }}
@@ -12,4 +12,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default LoadingComponent;

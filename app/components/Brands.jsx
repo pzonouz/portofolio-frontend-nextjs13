@@ -1,26 +1,9 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { axiosClient } from "../utils/axios";
 import Link from "next/link";
-import Loading from "./Loading";
 import Image from "next/image";
 
-const Brands = () => {
-  const [brands, setBrands] = useState([]);
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    const fetchBrands = async () => {
-      setLoading(true);
-      let response = await axiosClient.get(`/products/brands/`);
-      setLoading(false);
-      setBrands(response.data);
-    };
-    fetchBrands();
-  }, []);
+const Brands = ({ brands }) => {
   return (
     <div className=" px-[1rem] py-12 flex flex-col bg-gray-200 md: col-span-full">
-      {loading ? <Loading /> : ""}
       <div className=" -mb-12 text-red-600 font-bold text-2xl text-center">
         جاویدان صنعت
       </div>

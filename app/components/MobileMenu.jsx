@@ -710,6 +710,26 @@ const MobileMenu = ({ parts, services, classes }) => {
               )}
             </div>
           </div>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              lineHeight: "3rem",
+              borderBottom: "solid 1px rgb(156 163 175)",
+            }}
+            className={`w-full
+             text-2xl ${
+               L1MenuActive == "classes"
+                 ? "theme-menu-selected-background-color"
+                 : ""
+             }`}
+            key={3}
+          >
+            <div className={`px-4 flex flex-row items-center justify-between`}>
+              <Link className="" href="/projects/">
+                پروژه ها
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

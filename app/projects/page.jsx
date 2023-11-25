@@ -1,29 +1,10 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { axiosClient } from "../utils/axios";
-import Loading from "../components/Loading";
 import Projects from "../components/Projects";
 
-const page = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState([]);
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        setLoading(true);
-        const response = await axiosClient.get(`/projects/`);
-        setProjects(response.data);
-        setLoading(false);
-      } catch (error) {
-        alert(error);
-      }
-    };
-    fetchProjects();
-  }, []);
+const page = async () => {
+  const projectsRes = await fetch(`${process.env.BACKEND_URL}/projects/`);
+  const projects = await projectsRes.json();
   return (
     <div className=" mt-6">
-      {loading ? <Loading /> : ""}
       <div className=" bg-red-600 h-28 text-3xl text-white text-center align-middle leading-[7rem]">
         تمام پروژه ها
       </div>
