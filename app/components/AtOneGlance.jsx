@@ -13,7 +13,7 @@ const AtOneGlance = () => {
           نمایش کاتالوگ جاویدان
         </div>
       </div>
-      <Image alt="catalog" src="/catalog.png" width={300} height={300} />
+      {/* <Image alt="catalog" src="/catalog.png" width={300} height={300} /> */}
     </div>
   );
 };
